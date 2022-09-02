@@ -1,0 +1,96 @@
+/*h1 {
+  display: inline-block;
+  top: 45px;
+  font-style: italic;
+  font-size: 50px;
+  color: white;
+  background-color: tomato;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-right: 420px;
+  width: 800px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  padding: 15px;
+}*/ 
+.car-img{
+     overflow: hidden;
+}
+
+.car-img img{
+    transition: all 1.3s ease;
+}
+
+.car-img:hover img{
+    transform: scale(1.2);
+}
+
+.t-card:hover{
+  transform: translateY(-10px);
+  transition: .4s;
+  box-shadow: 5px 10px 18px #e51515;
+}
+
+
+.quiz-card:hover{
+  transform: translateY(-10px);
+  transition: .4s;
+  box-shadow: 5px 10px 18px grey;
+  opacity: 0.5;
+}
+
+.rond{
+  text-decoration: none;
+  color: white;
+   
+}
+
+.pil:hover{
+  box-shadow: 5px 10px 10px grey;
+ }
+
+.bg_quiz{
+  background-color: #c7960f;
+  
+}
+
+
+.box-quiz{
+  position: absolute;
+  left: 7rem;
+  border: 5px solid blue;
+  width: 107rem ;
+  height: 50rem;
+}
+
+.round-time{
+  overflow: hidden; 
+  position: relative; 
+  width: 125px; 
+  height:125px; 
+  border: 5px solid #fff700; 
+  border-radius: 50%; 
+  text-align: center; 
+  margin-right: -1rem;
+}
+
+.round-circle{
+  width:100px; 
+  height: 100px; 
+  border-radius:50%; 
+  border: 2px solid blue; 
+  float:left;
+  overflow: hidden;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.rond-login{
+  overflow: hidden;
+  width:200px; 
+  height: 200px; 
+  border-radius:50%; 
+  border: 2px solid blue; 
+  text-align: center;
+  margin-right: 20px;
+}

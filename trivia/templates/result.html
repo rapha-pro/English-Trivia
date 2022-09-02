@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+ <title>English Trivia - result</title> 
+{% endblock %}
+
+{% block bodystyle %}
+ style="background-color: ;"
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-2 text-primary"><u>
+  Quiz result - {{ quiz }}</u></h1><br>
+
+<div class="content-section mt-5">
+  <div class="media ">
+    <img class="round-circle account-img" alt="Avatar" src="{{ user.profile.image.url }}">
+    <div class="media-body">
+      <br><h2 class="account-heading" style="float: left" >{{ user.username|title }}</h2>
+<h1 class="text-center mb-2 text-success" style="position: relative; left: -5px;">Quiz Completed Successfully</h1>
+
+    </div>
+  </div>
+  <br>
+  <hr>
+
+  <h1 style="float:left; margin-right:-10px;">Result: ----> </h1>
+<h1 class="text-center" style="position: relative; top: 20px;">You scored a total of <mark><span class="text-{{bcolor}}">{{ scoring }}%</span></mark></h1><br><br><br><br>
+
+
+ 
+{% if scoring < 50 %}
+  <h1 class="text-center text-primary">Oh, Sorry! working harder and harder, I'm sure you'll get it next time :)</h1>
+{% elif scoring < 100 %}
+  <h1 class="text-center text-primary">That's good, keep up the good work! </h1>
+{% elif scoring == 100%}
+  <h1 class="text-center text-primary"><span class="text-success">Perfect!</span> That was well done!</h1>
+
+{% endif %}
+<h3></h3>
+
+
+
+
+{% endblock %}

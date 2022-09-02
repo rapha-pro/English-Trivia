@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}
+ <title>English Trivia - Selection</title> 
+{% endblock %}
+
+<!-- Search box -->
+{% block content %}
+<div class="row">
+  <div class="text-center mt-3">
+    <h1 class="display-3 fw-bold">Choose a quiz</h1>
+  </div>
+  <form action="{% url 'selection' %}"
+    class="row g-3 justify-content-center">
+  <div class="col-8">
+    <input type="text" class="form-control" id="inputSearch" placeholder="Search a quiz" name="search" value="{{ search }}">
+  </div>
+  <div class="col-1">
+    <button type="submit" class="btn btn-primary mb-3">Search</button>
+  </div>
+</form>
+
+  <!--  Rounded pills  -->
+<div class="row ">
+{% for cat in categories %}  
+<div class="col-3">
+  {% if cat.category == "grammar" %}
+   <a href="{% url 'category' cat %}" class="rond">
+  <span class="mx-auto py-2 badge rounded-pill bg-danger col-9 pil btn">{{ cat.category }}</span></a>
+</div>
+
+  {% elif cat.category == "vocabulary"%}
+   <a href="{% url 'category' cat %}" class="rond">
+  <span class="mx-auto py-2 badge rounded-pill bg-success col-9 pil btn">{{ cat.category }}</span></a>
+</div>
+
+  {% else %}
+  <a href="{% url 'category' cat %}" class="rond">
+  <span class="mx-auto py-2 badge rounded-pill bg-info col-9 pil btn">{{ cat.category }}</span></a>
+</div>
+
+  {% endif %}
+ {% endfor %} 
+<div class="col-3">
+  <a href="{% url 'selection' %}" class="rond">
+  <span class="mx-auto py-2 badge rounded-pill bg-warning col-9 pil btn">All</span></a>
+</div>
+</div>
+
+  <!-- Quiz Cards -->
+  
+  <div class="row">
+    {% if all_quizzes %}
+    {% for quiz in all_quizzes %}
+    <div class="col-sm-4 mt-3">
+      <div class="quiz-card">
+      <div class="card bg-secondary text-light">
+      <div class="card-body">
+        <h5 class="card-title h3">{{ quiz.topic }}</h5>
+        <p class="card-text">{{ quiz.description_text }}</p>
+        <div>
+          <a href="/quiz/{{ quiz.id }}/start" class="btn btn-primary text-center">Select</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+    {% endfor %}
+{% else %}
+
+  <!-- No quizzes available -->
+    
+  <h2 style="margin-top: 0px; padding-left:12rem; padding-top: 4rem;">Sorry, No quiz available.. :(</h2>
+
+   <div class="col-2 mx-auto mb-3 py-5">
+      <a href="/selection" class="btn btn-dark my-4" type="button">Go back to main menu</a>
+    </div>
+{% endif %}
+</div>
+</div>
+{% endblock %}

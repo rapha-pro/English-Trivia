@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %}
+ <title>English Trivia - Register</title> 
+{% endblock %}
+
+
+{% block bodystyle %}
+ style="background-image: url('https://i.pinimg.com/736x/f7/bf/82/f7bf8289b059b3c6ae7ab2f177ec8b3f.jpg'); background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;"
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center text-primary mt-3">Register account</h1>
+  
+<div class="" style="margin-left: 0rem; margin-top: 1rem;">
+  <form method="POST" class="form-group">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <br><input type="checkbox" name="student"> 
+    <label for="student">Student</label>
+    <span class="ms-4">
+    <input type="checkbox" name="teacher"> 
+    <label for="teacher">Teacher</label>
+    <br><br><p>already have an account? Login <a class="text-danger" href="/login">here</a></p><br>
+    </span>
+
+    <button type="submit" class="btn btn-success">SignUp</button>
+  </form>
+</div>
+</div>
+
+  
+{% endblock %}

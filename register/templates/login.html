@@ -1,0 +1,50 @@
+ n{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %}
+ <title>English Trivia - Login</title> 
+{% endblock %}
+
+{% block bodystyle %}
+ style="background-image: url('https://images.ctfassets.net/co0pvta7hzrh/6D3fPpGDWwYrY5kww9DmjE/9cc07e13c4aba6af248d8090248b6580/patient_registration_form_template_Thumbnail.png'); background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%; 
+  color: white;"
+{% endblock %}
+
+{% block content %}
+<!-- <div class="" style="margin-left: 0rem; margin-top: 3rem;">
+  <form method="post" class="from-group">
+	  {% csrf_token %}
+	  {{l_form|crispy}}
+	  <br><p>Don't have an account? Create one <a class="text-danger" href="/register">here</a></p>
+	  <button type="submit" class="btn btn-success">Login</button>
+  </form>
+</div>
+
+   -->
+
+<h1 class="text-center text-primary mt-3 text-white">Login account</h1>
+
+<div class="" style="margin-left: 0rem; margin-top: 1rem;">
+  <form method="POST" class="form-group">
+  <div class="media text-center">
+      <img class="rond-login account-img" alt="Avatar" src="{% static 'img/user1.png' %}">
+  </div>
+
+    <fieldset style=";">
+      {% csrf_token %}
+      {{ form|crispy }}
+    </fieldset>
+    <br><br><p>Don't have an account? Create one <a class="text-danger" href="/register">here</a></p><br>
+    </span>
+
+    <button type="submit" class="btn btn-success">Login</button>
+  </form>
+</div>
+</div>
+
+{% endblock %}

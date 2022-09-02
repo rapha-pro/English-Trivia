@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+ <title>English Trivia - Quiz</title>
+{% endblock %}
+
+{% block bodystyle %}
+ style="background-color:#A9A9A9; color:white"
+{% endblock %}
+
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-1 ">
+  <div class="position-relative mt-5 mx-0 row row-cols-sm-1">
+    <div class="d-flex-columns">
+    <div class="mt-2 mb-2">
+        <h1 class="text-center text-danger quiz-title"><u>{{ category.category|title }} Quiz - {{ current_quiz }}</u></h1>
+        <h3 class="text-center" style="margin-top: 4rem;">{{ currentQuestion.question_text }}</h3>
+    </div>
+      
+      <div class="row row-sm-1 row-md-1 row-lg-2 d-flex flex-row justify-content-end mt-0 mb-4">
+        <div class= "fs-1 p-4 round-time">
+
+      <div id="demo" class="text-center"> </div>
+        </div>
+    </div>
+
+  <div class="row g-2">
+    
+    {% for c in choices %}
+      {% cycle 'primary' 'danger' 'warning' 'success' 'grey' as bgcolor silent %}
+    
+      <button type="button" class="btn btn-primary btn-lg btn-block mb-3 quiz-button quiz-card text-center rounded">{{c.choice_text}}</button>
+    {% endfor %}
+    
+  </div>
+      
+</div>
+
+    
+
+</div>
+</div>
+
+<!-- implementing a javascript function -->
+    <script>
+    function startCountdown(seconds) {
+      let counter = seconds;
+    
+      const interval = setInterval(() => {
+        document.getElementById("demo").innerHTML = counter;
+        counter--;   
+        if (counter < -1 ) {
+          clearInterval(interval);
+          document.getElementById("demo").innerHTML ="0";
+          var qn = {{quiz.id}}
+          validate(qn,"no_answer",0);          
+        }
+      }, 1000);
+    }
+
+    startCountdown({{ currentQuestion.duration }});
+      
+        </script>
+
+<script type="text/javascript">
+  
+  $( ".quiz-button" ).click(function() {
+    var qn = {{quiz.id}}
+    var question = {{currentQuestion.id}}
+    var answer = jQuery(this).text();
+    var $bt = $(this);
+    $.ajax({
+      url: '/check/'+question+'/'+answer,
+      type: 'POST',
+      headers:{
+          "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()
+      },
+      //data: data,
+      success: function (response) {
+        if (response == 'true'){
+          $bt.css({'background-color': 'green'});
+          validate(qn,answer,1);
+        }else{
+          $bt.css({'background-color': 'red'});
+          validate(qn,answer,0);
+        }
+      },
+      error: function (error) {     
+        alert("500: "+error);
+      },
+      
+    });
+  });
+
+  function validate(qn, answer, valid) {
+    $.ajax({
+      url: '/validate/'+qn+'/'+answer+'/'+valid,
+      type: 'POST',
+      headers:{
+          "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()
+      },
+      //data: data,
+      success: function (response) {          
+        //alert("200: "+response);
+        if (response == 1){
+          setTimeout(function() {
+              window.location.href = "/scoreboard";
+          }, 1100);
+        }else{
+          setTimeout(function() {
+            location.reload();
+          }, 1100);
+        }//document.body.innerHTML += response;
+        
+      },
+      error: function (error) {
+       
+        alert("500: "+error);
+      },
+      
+  });
+
+  }
+  // function validate(qn, answer){
+  //   $("button").click(function(){
+  // var title=$(this).attr("value");
+  // alert(answer);
+  // });
+  //}
+  
+</script>
+  
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+ <title>English Trivia - Home</title> 
+{% endblock %}
+
+{% block content %}
+<div class="row">
+      <div class="text-center">
+    <h1 style="text-decoration: underline; text-decoration-color: orange;"class="display-4 fw-bold">Welcome to English Trivia</h1>
+        <h2 class="mt-4 fw-bold display-4">Learn with fun</h2>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">English Trivia is a game-based learning platform that makes it easy to learn by playing games or trivia quizzes in minutes. Unleash the fun in class and living rooms</p>
+    </div>
+
+<!--  images  
+        
+  </div>
+  <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 g-3 mb-4">
+        <div class="col">
+          <img src="https://cdn5-ss4.sharpschool.com/UserFiles/Servers/Server_2295901/Image/ESL.jpg" alt="vertical img" >
+        </div>
+        <div class="col">
+          <img src="{% static 'img/quiz_time.jpg' %}" class="rounded shadow-lg" alt="Quiz time image" width="500" height="350" <!--loading="lazy"
+        </div>
+  </div>            -->   
+
+
+  <div class="row row row-cols-1 row-cols-md-1 row-cols-lg-2">
+    <div class="card mb-3" style="max-width: 655px;">
+  <div class="row g-0">
+    <div class="px-0 col-lg-8">
+      <div class="car-img">
+      <img src="{% static 'img/quiz_time.jpg' %}" class="img-fluid rounded-start" alt="english learner" style="height:21rem;">
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card-body">
+        <h5 class="card-title h2 text-primary mt-2">Trivia  Night</h5>
+        <p class="card-text h4 mt-5">"Quiz Time! Grab your seat and join us </br></br><br> <span class='text-dark h6'>"To play or not to play, that is the question!"</span></p>
+        <p class="card-text mt-4.5"><small class="text-muted"></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="card mb-3 ms-auto " style="max-width: 655px;">
+  <div class="row g-0">
+    <div class="col-lg-8">
+      <div class="car-img">
+      <img src="{% static 'img/trivia.jpg' %}" class="img-fluid rounded-start" alt="english image" style="height: 335px">
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card-body">
+        <h5 class="card-title h2 text-danger">Did you know ?</h5>
+        <p class="card-text mt-3 h5"><span class="fw-bold">"RHYTHM" </span>is the Longest English word without a vowel</p>
+        <p class="card-text mt-3"><small class="text-muted">CHALLENGE!: What is the common consonant in English?!<br> Updated 1 day ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+    <!-- Last three cards -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 ">
+  <div class="col t-card">
+    <div class="card h-100">
+      <div> <!--class="car-img"-->
+      <img style="height: 290px" src="https://www.technocrazed.com/wp-content/uploads/2018/09/grammar.jpg" class="card-img-top" alt="Grammar img">
+      </div>
+      <div class="card-body">
+      </br>
+        <h5 class="card-title">Grammar</h5>
+        <p class="card-text">Grammar is the study of words, how they are used in sentences, and how they change in different situations. The Ancient Greeks used to call it grammatikē tékhnē, the craft of letters. </br>Want to increase your grammar ? Our website contains differents quizzes to help develop your skills in English.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+      
+  <div class="col t-card">
+    <div class="card h-100">
+      <div> <!--class="car-img"-->
+      <img style="height: 320px" src="{% static 'img/vocabulary.png' %}" class="card-img-top" alt="Vocabulary img"> <!--"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbetgEXij8iiVzoCo0G2qMK3zwL_FlBCJ7iA&usqp=CAU"-->
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Vocabulary</h5>
+        <p class="card-text">English has a large vocabulary with an estimated 250,000 distinct words and three times that many distinct meanings of words. Learning just 3,000 words is enough to understand most of everyday English conversation and writing as long as you're working from the right list</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+      
+  <div class="col t-card">
+    <div class="card h-100">
+      <div ><!--class="car-img"-->
+      <img style="height: 320px" src="https://static.toiimg.com/imagenext/toiblogs/photo/readersblog/wp-content/uploads/2021/02/litreture-TOI.jpg" alt="Literature img">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Literature</h5>
+        <p class="card-text">Books are brilliant, they teach us so many things we may not have otherwise learned. Want to check your understanding about literary arts ? Check out our fun literature quizzes.</br></br> “<i>What is wonderful about great literature is that it transforms the man who reads it towards the condition of the man who wrote."</br>- E. M. Forster</i></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="d-grid gap-2 col-3 mx-auto">
+      <a href="/selection" class="btn btn-primary my-4" type="button">Go to Quizzes</a>
+    </div>
+  </div>
+{% endblock %}
+  

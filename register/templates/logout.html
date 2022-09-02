@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %}
+ <title>English Trivia - Logout</title> 
+{% endblock %}
+
+{% block bodystyle %}
+ style="background-image: url('https://images.ctfassets.net/co0pvta7hzrh/6D3fPpGDWwYrY5kww9DmjE/9cc07e13c4aba6af248d8090248b6580/patient_registration_form_template_Thumbnail.png'); background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%; 
+  color: white;"
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="text-center text-primary mt-3 mb-5 text-white"><u>Logout account</u></h1>
+
+<div class="" style="margin-left: 0rem; margin-top: 1rem;">
+  <h1 class="text-dark mt-5">You have been logged out successfully</h1>
+  <br><h3 class="mt-5">Thanks for spending quality time on the website today</h3>
+  <br><h3 class="mt-5">already have an account? Login <a class="text-danger" href="/login">here</a>; else, you can <a class="text-success" href="/">return to homepage</a></h3><br>
+    </span>
+  </form>
+</div>
+</div>
+
+{% endblock %}

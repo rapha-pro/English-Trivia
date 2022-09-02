@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %}
+ <title>English Trivia - Profile</title> 
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-3">Welcome Back {{ user.username|title }} !</h1>
+<div class="content-section mt-5">
+  <div class="media">
+    <img class="round-circle account-img" alt="Avatar" src="{{ user.profile.image.url }}">
+    <div class="media-body">
+      <h2 class="account-heading">{{ user.username|title }} </h2>
+      <p class="text-secondary">{{ user.email }}</p>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <h3>
+    message: admin@etrivia.com<br><br>
+
+    Hi {{user.username|title}}, <br>
+    Welcome to English Trivia community. This website is designed for you and we're glad you're here. Just as a short preview, this place here, is your own space. As you are login, you would be able to play different quizzes. Try to do your best to beat other wonderful players around the world. <br><br>
+See you soon, have a nice one,</br>
+  The Developer team!
+  </h3>
+
+{% endblock %}
